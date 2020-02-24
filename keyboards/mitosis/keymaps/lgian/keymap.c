@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*
    *  q    w      e      r      t        ||        y     u    i     o     p
    *  a    s      d      f      g        ||        h     j    k     l     ;
-   *  z    x      c      v      b        ||        n     m    ,     .     /
+   *  z    x      c      v      b        ||        n     m    ,     .     /?
    *        `     FΝ2   esc    ctrl      ||        tab    enter     =    '
    *       c+sh  shift  alt    bksp      ||        space  FN1    shift   \
    */
@@ -42,31 +42,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       /*,   */ KC_GRV,          MO(_xF), KC_ESC,  KC_LCTL,     KC_TAB,  KC_ENT,  KC_EQL,   KC_QUOT,
       /*,   */ LCTL(KC_LSFT),   KC_LSFT, KC_LALT, KC_BSPC,     KC_SPC,  MO(_xN), KC_LSFT,   KC_BSLS),
   /*
-   *  !     @      up     -     _        ||     +    7     8     9    *
-   *  #    left   down  right   $        ||     ?    4     5     6    |
-   *  []    ()     {}    <>     &        ||     "    1     2     3    0
+   *  !     @      up     _     -        ||     +    7     8     9    *
+   *  #    left   down  right   $        ||     "    4     5     6    |
+   *  []    ()     {}    <>     &        ||     '    1     2     3    0
    *        `     FΝ2   esc    ctrl      ||     tab    enter     =    '
    *       c+sh  shift  alt    bksp      ||     space  FN1    shift   \
    */
   [_xN] = LAYOUT(
-      KC_EXLM,          KC_AT,              KC_UP,              KC_MINS,        KC_UNDS,    KC_PLUS, KC_7,    KC_8,    KC_9,     KC_ASTR,
-      KC_HASH,          KC_LEFT,            KC_DOWN,            KC_RIGHT,       KC_DLR,     KC_QUES, KC_4,    KC_5,    KC_6,     KC_PIPE,
-      TD(TD_LCBR_RCBR), TD(TD_LPRN_RPRN),   TD(TD_LBRC_RBRC),   TD(TD_LT_GT),   KC_AMPR,    KC_DQUO, KC_1,    KC_2,    KC_3,     KC_0,
+      KC_EXLM,          KC_AT,              KC_UP,              KC_UNDS,        KC_MINS,    KC_PLUS, KC_7,    KC_8,    KC_9,     KC_ASTR,
+      KC_HASH,          KC_LEFT,            KC_DOWN,            KC_RIGHT,       KC_DLR,     KC_DQUO, KC_4,    KC_5,    KC_6,     KC_PIPE,
+      TD(TD_LCBR_RCBR), TD(TD_LPRN_RPRN),   TD(TD_LBRC_RBRC),   TD(TD_LT_GT),   KC_AMPR,    KC_QUOT, KC_1,    KC_2,    KC_3,     KC_0,
       /*,   */ _______, _______, _______, _______,     _______, _______, _______, _______,
       /*,   */ _______, _______, _______, _______,     _______, _______, _______, _______),
   /*
-   *  lock pgdown  up   pgup   pscr      ||     vol+    F7    F8    F9    F10
-   *  #    left   down  right  lang      ||     vol-    F4    F5    F6    F11
-   *  []    ()     {}    <>    nop       ||     mute    F1    F2    F3    F12
+   *  ~     ^     pgup   =     pscr      ||     vol+    F7    F8    F9    F10
+   *  %     `     pgdo   \     lang      ||     vol-    F4    F5    F6    F11
+   *  lock nop    nop   nop    nop       ||     mute    F1    F2    F3    F12
    *        `     FΝ2   esc    ctrl      ||     tab    enter     %    ^
    *       c+sh  shift  alt    bksp      ||     space  FN1    shift   ~
    */
   [_xF] = LAYOUT(
-      RGUI(KC_L), KC_PGDOWN,   KC_UP,   KC_PGUP,  TD(TD_PSCR_PSCRW),     KC_VOLU, KC_F7,   KC_F8,   KC_F9,    KC_F10,
-      KC_HASH, KC_LEFT,     KC_DOWN, KC_RIGHT, RGUI(KC_SPC),      KC_VOLD, KC_F4,   KC_F5,   KC_F6,    KC_F11,
-      KC_RBRC, KC_BSLS,     KC_LPRN, KC_RPRN,  _______,     KC_MUTE, KC_F1,   KC_F2,   KC_F3,    KC_F12,
-      /*,   */ _______,   _______, _______, _______,     _______, _______, KC_PERC, KC_CIRC,
-      /*,   */ _______,   _______, _______, _______,     _______, _______, _______, KC_TILD),
+      KC_TILD, KC_CIRC,   KC_PGUP,   KC_EQL,  TD(TD_PSCR_PSCRW),     KC_VOLU, KC_F7,   KC_F8,   KC_F9,    KC_F10,
+      KC_PERC, KC_GRV,    KC_PGDOWN, KC_BSLS, RGUI(KC_SPC),      KC_VOLD, KC_F4,   KC_F5,   KC_F6,    KC_F11,
+      RGUI(KC_L), _______,   _______, _______,  _______,     KC_MUTE, KC_F1,   KC_F2,   KC_F3,    KC_F12,
+      /*,   */ _______,   _______, _______, _______,     _______, _______, _______, _______,
+      /*,   */ _______,   _______, _______, _______,     _______, _______, _______, _______),
 };
 
 void matrix_scan_user(void) {
