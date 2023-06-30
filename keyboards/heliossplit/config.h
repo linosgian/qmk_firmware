@@ -31,3 +31,40 @@
 //RST = GP23
 //SDA = GP2
 //SCL = GP3
+#define ZOOM_ENABLED            FALSE
+#define SCROLL_ENABLED          TRUE
+#define SPLIT_POINTING_ENABLE
+#define POINTING_DEVICE_RIGHT
+
+#define IQS5xx_ADDR          	0x74
+#define MOUSEKEY_INTERVAL           8
+#define MOUSEKEY_DELAY              0
+#define MOUSEKEY_TIME_TO_MAX        60
+#define MOUSEKEY_MAX_SPEED          6
+#define MOUSEKEY_WHEEL_DELAY        400
+#define MOUSEWHEEL_SENSITIVITY      1
+#define TRACKPAD_RATE       10
+#define	END_WINDOW				(uint16_t)0xEEEE
+
+#define I2C_DRIVER I2CD0
+#define I2C1_SDA_PIN GP2
+#define I2C1_SCL_PIN GP3
+
+
+//Miryoku
+//
+
+// default but used in macros
+#undef TAPPING_TERM
+#define TAPPING_TERM 190
+
+
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+//#define QUICK_TAP_TERM 0
+/* #define HOLD_ON_OTHER_KEY_PRESS */
+#define PERMISSIVE_HOLD
+// Auto Shift
+#define NO_AUTO_SHIFT_ALPHA
+#define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+#define AUTO_SHIFT_NO_SETUP
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
