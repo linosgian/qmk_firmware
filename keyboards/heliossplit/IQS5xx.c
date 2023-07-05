@@ -54,7 +54,7 @@ void Process_XY(void) {
 
     i16RelX[1] = ((Data_Buff[5] << 8) | (Data_Buff[6]));
     i16RelY[1] = ((Data_Buff[7] << 8) | (Data_Buff[8]));
-    // uprintf("%d x \n", Data_Buff[5]);
+    /* uprintf("%d x \n", Data_Buff[5]); */
 
     // first finger touch strength
     // ui16TouchStrength[1] = ((Data_Buff[13] << 8) | (Data_Buff[14])); //13-20-27-34-11/14-21-28-35-42

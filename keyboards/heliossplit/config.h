@@ -2,25 +2,14 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 #pragma once
 
-/* default setup after eeprom reset */
-// #define RGBLIGHT_DEFAULT_SAT 232
-// #define RGBLIGHT_DEFAULT_VAR 100
-// #define RGBLIGHT_DEFAULT_SPD 2
-// #define RGBLED_NUM 1
-// #define SPLIT_USB_TIMEOUT_POLL 10
-// #define SPLIT_WATCHDOG_ENABLE
-// #define SPLIT_WATCHDOG_TIMEOUT 2500
-// #define SERIAL_USART_TX_PIN GP0
 /* VBUS detect pin */
 // #define USB_VBUS_PIN GP19
 #define SELECT_SOFT_SERIAL_SPEED 0
 #define SERIAL_PIO_USE_PIO0
-// #define USE_SERIAL
 // #define MASTER_LEFT
 #define EE_HANDS
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 5000
-// #define SERIAL_USART_SPEED 29000
 #define WS2812_PIO_USE_PIO1
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17 // Specify a optional status led which blinks when entering the bootloader
@@ -33,8 +22,8 @@
 //SCL = GP3
 #define ZOOM_ENABLED            FALSE
 #define SCROLL_ENABLED          TRUE
-#define SPLIT_POINTING_ENABLE
-#define POINTING_DEVICE_RIGHT
+/* #define SPLIT_POINTING_ENABLE */
+/* #define POINTING_DEVICE_RIGHT */
 
 #define IQS5xx_ADDR          	0x74
 #define MOUSEKEY_INTERVAL           8
@@ -46,7 +35,7 @@
 #define TRACKPAD_RATE       10
 #define	END_WINDOW				(uint16_t)0xEEEE
 
-#define I2C_DRIVER I2CD0
+#define I2C_DRIVER I2CD1
 #define I2C1_SDA_PIN GP2
 #define I2C1_SCL_PIN GP3
 
