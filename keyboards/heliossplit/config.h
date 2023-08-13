@@ -3,13 +3,13 @@
 #pragma once
 
 /* VBUS detect pin */
-// #define USB_VBUS_PIN GP19
+#define USB_VBUS_PIN GP19
 #define SELECT_SOFT_SERIAL_SPEED 0
 #define SERIAL_PIO_USE_PIO0
 // #define MASTER_LEFT
 #define EE_HANDS
-#define SPLIT_USB_DETECT
-#define SPLIT_USB_TIMEOUT 5000
+/* #define SPLIT_USB_DETECT */
+/* #define SPLIT_USB_TIMEOUT 5000 */
 #define WS2812_PIO_USE_PIO1
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17 // Specify a optional status led which blinks when entering the bootloader
