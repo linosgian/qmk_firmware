@@ -31,20 +31,15 @@ void pointing_device_init(void) {
 			print("\nedw\n");
 		}
 
-		/* i2c_status_t status = i2c_start(devaddr, I2C_TIMEOUT); */
-		/* if (status < 0) { */
-		/* 	goto error; */
-		/* } */
-
-		/* i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7); */
+		i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7);
 		
-		/* i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7); */
-		/* i2c_writeReg16(IQS5xx_ADDR<<1, IdleTouchRR_adr, &idleRefreshRate[0], 2, 4); */
-		/* i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7); */
-		/* i2c_writeReg16(IQS5xx_ADDR<<1, LP1RR_adr, &idleRefreshRate[0], 2, 4); */
-		/* i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7); */
-		/* i2c_writeReg16(IQS5xx_ADDR<<1, LP2RR_adr, &idleRefreshRate[0], 2, 4); */
-		/* i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7); */
+		i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7);
+		i2c_writeReg16(IQS5xx_ADDR<<1, IdleTouchRR_adr, &idleRefreshRate[0], 2, 4);
+		i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7);
+		i2c_writeReg16(IQS5xx_ADDR<<1, LP1RR_adr, &idleRefreshRate[0], 2, 4);
+		i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7);
+		i2c_writeReg16(IQS5xx_ADDR<<1, LP2RR_adr, &idleRefreshRate[0], 2, 4);
+		i2c_writeReg16(IQS5xx_ADDR<<1, END_WINDOW, &stop, 1, 7);
 	}
 }
 

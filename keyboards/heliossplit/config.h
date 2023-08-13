@@ -32,7 +32,7 @@
 #define MOUSEKEY_MAX_SPEED          6
 #define MOUSEKEY_WHEEL_DELAY        400
 #define MOUSEWHEEL_SENSITIVITY      1
-#define TRACKPAD_RATE       10
+#define TRACKPAD_RATE       1
 #define	END_WINDOW				(uint16_t)0xEEEE
 
 #define I2C_DRIVER I2CD1
