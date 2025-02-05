@@ -16,29 +16,6 @@
 
 #define SERIAL_DEBUG
 
-//RDY = GP20
-//RST = GP23
-//SDA = GP2
-//SCL = GP3
-#define ZOOM_ENABLED            FALSE
-#define SCROLL_ENABLED          TRUE
-/* #define SPLIT_POINTING_ENABLE */
-/* #define POINTING_DEVICE_RIGHT */
-
-#define IQS5xx_ADDR          	0x74
-#define MOUSEKEY_INTERVAL           8
-#define MOUSEKEY_DELAY              0
-#define MOUSEKEY_TIME_TO_MAX        60
-#define MOUSEKEY_MAX_SPEED          6
-#define MOUSEKEY_WHEEL_DELAY        400
-#define MOUSEWHEEL_SENSITIVITY      1
-#define TRACKPAD_RATE       1
-#define	END_WINDOW				(uint16_t)0xEEEE
-
-#define I2C_DRIVER I2CD1
-#define I2C1_SDA_PIN GP2
-#define I2C1_SCL_PIN GP3
-
 
 //Miryoku
 //
