@@ -6,6 +6,10 @@ enum layer_number {
     _MOVE,
     _SYMBOL
 };
+enum custom_keycodes {
+    SPC_LGUI = SAFE_RANGE  // Custom keycode
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* 0
  * ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
@@ -22,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Y,              KC_U,           KC_I,          KC_O,      KC_P,
 RALT_T(KC_A),      KC_S,              LCTL_T(KC_D),      KC_F,      KC_G,              KC_H,              KC_J,   LCTL_T(KC_K),  KC_L,      RALT_T(KC_SEMICOLON),
 KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,              KC_N,              KC_M,           KC_COMM,       KC_DOT,    KC_SLSH,
-                   OSM(MOD_LSFT),           LT(2, KC_ESC),     KC_BSPC,           KC_MUTE,           KC_SPC,            LT(1, KC_ENT),  LT(3, LGUI(KC_SPC))
+                   OSM(MOD_LSFT),           LT(2, KC_ESC),     KC_BSPC,           KC_MUTE,           KC_SPC,            LT(1, KC_ENT),  SPC_LGUI
 ),
 /* 1
  * ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
@@ -38,7 +42,7 @@ KC_Z,              KC_X,              KC_C,              KC_V,              KC_B
 
 [_NUMBER] = LAYOUT(
 KC_LPRN,           KC_7,              KC_8,              KC_9,              KC_RPRN,           KC_NO,              KC_NO,         KC_NO,         KC_NO,       KC_NO,
-KC_LCBR,           KC_4,              KC_5,              KC_6,              KC_RCBR,           KC_NO,              KC_LABK,       KC_NO,         KC_RABK,     KC_RALT,
+KC_LCBR,           KC_4,              KC_5,              KC_6,              KC_RCBR,           KC_NO,              KC_LABK,       _______,         KC_RABK,     KC_RALT,
 KC_LBRC,           KC_1,              KC_2,              KC_3,              KC_RBRC,           KC_NO,              KC_NO,         KC_NO,         KC_DOT,      KC_NO,
                    KC_TILDE,          KC_0,              _______,           KC_MPLY,           KC_NO,              KC_NO,         KC_NO
 ),
@@ -85,16 +89,30 @@ void keyboard_post_init_user(void) {
     //debug_keyboard=true;
     // debug_mouse=true;
 }
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static uint16_t spc_timer = 0;
+
     switch (keycode) {
-        case LT(3,KC_SPC):
-            if (record->tap.count && record->event.pressed) {
-				register_code(KC_LGUI);
-                tap_code(KC_SPC);
-				unregister_code(KC_LGUI);
-				return false;
-			}
-			break;
+        case SPC_LGUI:
+            if (record->event.pressed) {
+                spc_timer = timer_read();  // Start timer when key is pressed
+                layer_on(3);  // Activate Layer 3 immediately on hold
+            } else {
+                if (timer_elapsed(spc_timer) < TAPPING_TERM-70) {
+                    // If released quickly → TAP (LGUI + SPC)
+                    register_code(KC_LGUI);
+                    tap_code(KC_SPC);
+                    unregister_code(KC_LGUI);
+                    layer_off(3);  // Ensure the layer turns off
+                } else {
+                    // If held → Keep Layer 3 active, turn off on release
+                    layer_off(3);
+                }
+            }
+            return false; // Prevent default behavior
+
+        default:
+            return true;
     }
-    return true;
 }
