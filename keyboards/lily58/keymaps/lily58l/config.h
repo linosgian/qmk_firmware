@@ -38,6 +38,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define RGBLIGHT_SLEEP      //  the RGB lighting will be switched off when the host goes to sleep
 #endif
 
+#undef TAPPING_TERM
+#define TAPPING_TERM 190
+
 // If you are using an Elite C rev3 on the slave side, uncomment the lines below:
+//
 // #define SPLIT_USB_DETECT
 // #define NO_USB_STARTUP_CHECK
+
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+//#define QUICK_TAP_TERM 0
+/* #define HOLD_ON_OTHER_KEY_PRESS */
+#define PERMISSIVE_HOLD
+// Auto Shift
+#define NO_AUTO_SHIFT_ALPHA
+#define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+#define AUTO_SHIFT_NO_SETUP
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
